@@ -115,15 +115,15 @@ exports.run = (browser => {
 			timeout: 3000000
 		});
 
-		/*yield page.waitFor(200000);
-  //yield page.waitFor('col-xs-12 small cursor-pointer');
-  	console.log('pressing the view all button');
-  	yield loginPage.evaluate(() => {
-      let elements = document.getElementsByClassName('col-xs-12 small cursor-pointer');
-      for (let element of elements){
-          element.click();
-      }
-  });*/
+		yield page.waitFor(200000);
+	    //yield page.waitFor('col-xs-12 small cursor-pointer');
+		console.log('pressing the view all button');
+		yield loginPage.evaluate(() => {
+		  let elements = document.getElementsByClassName('col-xs-12 small cursor-pointer');
+		  for (let element of elements){
+			  element.click();
+		  }
+	    });
 
 		//const screenshot = yield page.screenshot();
 		let pageHTML = yield page.content();
