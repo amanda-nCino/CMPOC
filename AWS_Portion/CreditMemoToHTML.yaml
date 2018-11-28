@@ -1,0 +1,26 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  CreditMemoToHTML:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs8.10
+      CodeUri: .
+      Description: ''
+      MemorySize: 1664
+      Timeout: 250
+      Role: 'arn:aws:iam::120485125197:role/lambda_basic_execution'
+      Events:
+        SNS1:
+          Type: SNS
+          Properties:
+            Topic:
+              Ref: SNSTopic1
+      Environment:
+        Variables:
+          CHROME_BUCKET: chromep
+          CHROME_KEY: headless_shell.tar.gz
+  SNSTopic1:
+    Type: 'AWS::SNS::Topic'

@@ -1,0 +1,3 @@
+<apex:page standardController="Loan__c" extensions="SNSController">
+	<h1> Hi! You have activated the Lambda function for Credit Memo </h1>
+</apex:page>
